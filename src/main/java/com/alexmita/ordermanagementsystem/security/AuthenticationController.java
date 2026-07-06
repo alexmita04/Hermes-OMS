@@ -2,6 +2,7 @@ package com.alexmita.ordermanagementsystem.security;
 
 import com.alexmita.ordermanagementsystem.security.dtos.AuthResponse;
 import com.alexmita.ordermanagementsystem.security.dtos.LoginRequest;
+import com.alexmita.ordermanagementsystem.security.dtos.SignupResponse;
 import com.alexmita.ordermanagementsystem.security.dtos.SingupRequest;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
@@ -22,8 +23,8 @@ public class AuthenticationController {
     }
 
     @PostMapping("/signup")
-    public ResponseEntity<String> register(@Valid @RequestBody SingupRequest request) {
-        String response = authService.signup(request);
+    public ResponseEntity<SignupResponse> register(@Valid @RequestBody SingupRequest request) {
+        SignupResponse response = authService.signup(request);
         return new ResponseEntity<>(response, HttpStatus.CREATED);
     }
 

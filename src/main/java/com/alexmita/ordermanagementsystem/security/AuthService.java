@@ -4,6 +4,7 @@ import com.alexmita.ordermanagementsystem.domain.user.User;
 import com.alexmita.ordermanagementsystem.domain.user.UserRepository;
 import com.alexmita.ordermanagementsystem.security.dtos.AuthResponse;
 import com.alexmita.ordermanagementsystem.security.dtos.LoginRequest;
+import com.alexmita.ordermanagementsystem.security.dtos.SignupResponse;
 import com.alexmita.ordermanagementsystem.security.dtos.SingupRequest;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -27,7 +28,7 @@ public class AuthService {
         this.authenticationManager = authenticationManager;
     }
 
-    public String signup(SingupRequest request) {
+    public SignupResponse signup(SingupRequest request) {
         if(userRepository.existsByUsername(request.username())) {
             throw new RuntimeException("this username is already taken");
         }
@@ -37,7 +38,10 @@ public class AuthService {
         user.setPassword(passwordEncoder.encode(request.password()));
 
         userRepository.save(user);
-        return "user was signed in successfully";
+
+        SignupResponse response = new SignupResponse("User successfully signed up!");
+
+        return response;
     }
 
     public AuthResponse login(LoginRequest request) {
