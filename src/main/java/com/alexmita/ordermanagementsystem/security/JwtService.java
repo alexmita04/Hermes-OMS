@@ -13,7 +13,7 @@ import java.util.function.Function;
 
 @Service
 public class JwtService {
-    private final String SECRET_KEY = "o cheie foarte lunga si alambicata ca sa nu fie vreodata sparta";
+    private final String SECRET_KEY = "ZPTb59BoXKPlemLN2igBUpBsP2yFdm8U0t76PPScFj0=";
     private final long EXPIRATION_TIME = 86400000; // 24 hours
 
 

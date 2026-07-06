@@ -15,6 +15,6 @@ public class UserService implements UserDetailsService {
 
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         return userRepository.findByUsername(username)
-                .orElseThrow(() -> new UsernameNotFoundException("Utilizatorul nu a fost găsit cu email-ul: " + username));
+                .orElseThrow(() -> new UsernameNotFoundException("user does not exist with this username: " + username));
     }
 }

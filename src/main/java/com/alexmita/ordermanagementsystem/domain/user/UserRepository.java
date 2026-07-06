@@ -1,9 +1,11 @@
 package com.alexmita.ordermanagementsystem.domain.user;
 
-import org.springframework.stereotype.Repository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-@Repository
-public class UserRepository {
+import java.util.Optional;
 
-    protected String findByUsername(String username) {}
+public interface UserRepository extends JpaRepository<User, Integer> {
+    boolean existsByUsername(String username);
+
+    Optional<User> findByUsername(String username);
 }
