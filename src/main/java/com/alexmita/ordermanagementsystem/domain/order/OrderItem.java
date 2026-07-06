@@ -33,6 +33,10 @@ public class OrderItem {
         return quantity;
     }
 
+    public Integer getId() {
+        return id;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
