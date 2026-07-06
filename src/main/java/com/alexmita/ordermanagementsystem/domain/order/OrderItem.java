@@ -1,12 +1,24 @@
 package com.alexmita.ordermanagementsystem.domain.order;
 
 import com.alexmita.ordermanagementsystem.domain.product.Product;
+import jakarta.persistence.*;
 
 import java.util.Objects;
 
+@Entity
 public class OrderItem {
-    private final Product product;
-    private final Integer quantity;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+
+    @ManyToOne
+    @JoinColumn(name = "product_id")
+    private Product product;
+
+    private Integer quantity;
+
+    public OrderItem() {}
 
     public OrderItem(Product product, Integer quantity) {
         this.product = product;

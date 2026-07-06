@@ -1,12 +1,24 @@
 package com.alexmita.ordermanagementsystem.domain.product;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
 import java.util.Objects;
 
+@Entity
 public class Product {
-    private final Integer id;
-    private final String name;
-    private final Double price;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+
+    private String name;
+    private Double price;
     private Integer stock;
+
+    public Product() {}
 
     public Product(Integer id, String name, Double price, Integer stock) {
         this.id = id;

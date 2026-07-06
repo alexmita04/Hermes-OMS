@@ -1,11 +1,22 @@
 package com.alexmita.ordermanagementsystem.domain.user;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
 import java.util.Objects;
 
+@Entity
 public class User {
-    private final Integer id;
-    private final String username;
-    private final String password;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+    private String username;
+    private String password;
+
+    public User() {
+    }
 
     public User(Integer id, String username, String password) {
         this.id = id;
